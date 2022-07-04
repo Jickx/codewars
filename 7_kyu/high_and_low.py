@@ -3,7 +3,14 @@
 
 def high_and_low(numbers):
     numbers_list = numbers.split()
-    return str(max(numbers_list) + ' ' + min(numbers_list))
+    max, min = int(numbers_list[0]), int(numbers_list[0])
+    for i in numbers_list:
+        if int(i) > max:
+            max = int(i)
+    for i in numbers_list:
+        if int(i) < min:
+            min = int(i)
+    return str(max) + ' ' + str(min)
 
 assert high_and_low("1 2 3 4 5") == "5 1"
 assert high_and_low("1 2 -3 4 5") == "5 -3"
