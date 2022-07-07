@@ -9,10 +9,10 @@ def order(sentence):
     sentence_list = sentence.split()
     result = [None] * len(sentence_list)
     for word in sentence_list:
-        for i in range(1, 10):
-            if str(i) in word:
-                result[i - 1] = word
-                break
+        for i in word:
+            if i.isnumeric():
+                result[int(i) - 1] = word
+                break   
     return " ".join(result)
 
 assert order("is2 Thi1s T4est 3a")  ==  "Thi1s is2 3a T4est"
