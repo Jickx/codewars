@@ -14,10 +14,12 @@ def in_array(array1, array2):
     return sorted(list(result))
 
 
-assert in_array(["live", "arp", "strong"], [
-    "lively", "alive", "harp", "sharp", "armstrong"]) == [
-        'arp', 'live', 'strong']
+assert in_array(
+    ["live", "arp", "strong"],
+    ["lively", "alive", "harp", "sharp", "armstrong"]
+) == ['arp', 'live', 'strong']
 
-
-assert in_array(["arp", "mice", "bull"], [
-    "lively", "alive", "harp", "sharp", "armstrong"]) == ['arp']
+assert in_array(
+    ["arp", "mice", "bull"],
+    ["lively", "alive", "harp", "sharp", "armstrong"]
+) == ['arp']
