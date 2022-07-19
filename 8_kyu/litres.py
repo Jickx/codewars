@@ -7,6 +7,7 @@
 def litres(time):
     return time // 2
 
+
 assert(litres(3)) == 1
 assert(litres(6.7)) == 3
 assert(litres(11.8)) == 5
