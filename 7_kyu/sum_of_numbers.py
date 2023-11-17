@@ -1,10 +1,6 @@
 def get_sum(a, b):
-    seq = []
-    x = min(a, b)
-    y = max(a, b)
-    for i in range(x, y + 1):
-        seq.append(i)
-    return sum(seq)
+    return sum(i for i in range(min(a, b), max(a, b) + 1))
 
 
-print(get_sum(0, -1))
+assert get_sum(0, 1) == 1
+assert get_sum(0, -1) == -1
