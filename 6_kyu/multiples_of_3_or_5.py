@@ -1,11 +1,5 @@
 def multiplies(num):
-    res = set()
-    for i in range(num):
-        if i % 3 == 0:
-            res.add(i)
-        elif i % 5 == 0:
-            res.add(i)
-    return sum(res)
+    return sum(i for i in range(num) if i % 3 == 0 or i % 5 == 0)
 
 
 assert multiplies(4) == 3
