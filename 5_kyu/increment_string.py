@@ -8,15 +8,3 @@ def increment_string(s):
         else:
             break
     return s[:i + 1] + str(int(s[i + 1:]) + 1).zfill(len(s) - i - 1)
-
-
-print(increment_string('009'))
-
-assert increment_string("foo") == "foo1"
-assert increment_string("foobar001") == "foobar002"
-assert increment_string("foobar1") == "foobar2"
-assert increment_string("foobar00") == "foobar01"
-assert increment_string("foobar99") == "foobar100"
-assert increment_string("foobar099") == "foobar100"
-assert increment_string("fo99obar99") == "fo99obar100"
-assert increment_string("") == "1"

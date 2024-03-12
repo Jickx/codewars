@@ -14,12 +14,3 @@ def rot13(message):
         else:
             res += i
     return res
-
-
-print(rot13('test'))
-print(rot13('Test'))
-print(rot13('aA bB zZ 1234 *!?%'))
-
-# ('test'), 'grfg',
-# ('Test'), 'Grfg',
-# ('aA bB zZ 1234 *!?%'), 'nN oO mM 1234 *!?%'
