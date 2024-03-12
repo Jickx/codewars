@@ -1,5 +1,6 @@
 from unittest import TestCase
 from .set_reducer import set_reducer
+from .oddest import oddest
 
 
 class Test7Kyu(TestCase):
@@ -20,3 +21,8 @@ class Test7Kyu(TestCase):
         for expected, inp in sample_test_cases:
             msg = f'set_reducer({inp})'
             self.assertEqual(set_reducer(inp), expected, msg)
+
+    def test_oddest(self):
+        self.assertEqual(oddest([1, 2]), 1)
+        self.assertEqual(oddest([1, 3]), 3)
+        self.assertEqual(oddest([1, 5]), 5)
