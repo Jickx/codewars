@@ -1,6 +1,6 @@
 from unittest import TestCase
 from .set_reducer import set_reducer
-from .oddest import oddest
+from .sum_nested import sum_nested
 
 
 class Test7Kyu(TestCase):
@@ -22,7 +22,19 @@ class Test7Kyu(TestCase):
             msg = f'set_reducer({inp})'
             self.assertEqual(set_reducer(inp), expected, msg)
 
-    def test_oddest(self):
-        self.assertEqual(oddest([1, 2]), 1)
-        self.assertEqual(oddest([1, 3]), 3)
-        self.assertEqual(oddest([1, 5]), 5)
+    def test_sum_nested(self):
+        self.assertEqual(sum_nested([1]), 1)
+        self.assertEqual(sum_nested([1, 2, 3, 4]), 10)
+        self.assertEqual(sum_nested(list(range(11))), 55)
+
+        self.assertEqual(sum_nested([]), 0)
+
+        self.assertEqual(sum_nested([[1], []]), 1)
+        self.assertEqual(sum_nested([[1, 2, 3, 4]]), 10)
+
+        self.assertEqual(sum_nested([[], []]), 0)
+
+        self.assertEqual(sum_nested([1, [1], [[1]], [[[1]]]]), 4)
+        self.assertEqual(sum_nested([1, [1], [1, [1]], [1, [1], [1, [1]]]]), 8)
+
+        self.assertEqual(sum_nested([[[[], [], [[[[[[[[[[]]]]]]]]]]], [], [], [[[], [[]]]]], []]), 0)
