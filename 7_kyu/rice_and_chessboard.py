@@ -9,7 +9,3 @@ def squares_needed(grains):
     if grains < 1:
         return 0
     return 1 + squares_needed(grains // 2)
-
-
-print(squares_needed(4))
-print(squares_needed(349793859))

@@ -11,6 +11,3 @@ def set_reducer(inp):
     if len(result) == 1:
         return result[0]
     return set_reducer(result)
-
-
-print(set_reducer([8, 1, 6, 1, 2, 7, 7, 7, 7, 6, 5, 3, 2, 1, 8]))
