@@ -2,6 +2,7 @@ from unittest import TestCase
 from .sum_nested import sum_nested
 from .rice_and_chessboard import squares_needed
 from .find_max_tree_node import TreeNode, find_max
+from .stringify import Node, stringify
 
 
 class Test7Kyu(TestCase):
@@ -73,3 +74,9 @@ class Test7Kyu(TestCase):
         all_negatives = TreeNode(-5, TreeNode(-4, TreeNode(-6), TreeNode(-2)),
                                  TreeNode(-9, TreeNode(-45, None, TreeNode(-1))))
         self.assertEqual(find_max(all_negatives), -1)  # Max at last node
+
+    def test_stringify(self):
+        self.assertEqual(stringify(Node(0, Node(1, Node(2, Node(3))))), '0 -> 1 -> 2 -> 3 -> None')
+        self.assertEqual(stringify(None), 'None')
+        self.assertEqual(stringify(Node(0, Node(1, Node(4, Node(9, Node(16)))))),
+                         '0 -> 1 -> 4 -> 9 -> 16 -> None')
