@@ -5,18 +5,7 @@ class Node:
 
 
 def stringify(node):
-    if node is None:
-        return 'None'
-    s = []
-
-    def inner(node, s):
-        s.append(str(node.data))
-        if node.next is None:
-            s.append('None')
-        else:
-            inner(node.next, s)
-        return ' -> '.join(s)
-    return inner(node, s)
+    return 'None' if node is None else str(node.data) + ' -> ' + stringify(node.next)
 
 
 print(stringify(Node(0, Node(1, Node(2, Node(3))))))  # '0 -> 1 -> 2 -> 3 -> None'
