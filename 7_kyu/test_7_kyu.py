@@ -1,6 +1,7 @@
 from unittest import TestCase
 from .set_reducer import set_reducer
 from .sum_nested import sum_nested
+from .rice_and_chessboard import squares_needed
 
 
 class Test7Kyu(TestCase):
@@ -38,3 +39,11 @@ class Test7Kyu(TestCase):
         self.assertEqual(sum_nested([1, [1], [1, [1]], [1, [1], [1, [1]]]]), 8)
 
         self.assertEqual(sum_nested([[[[], [], [[[[[[[[[[]]]]]]]]]]], [], [], [[[], [[]]]]], []]), 0)
+
+    def test_rice_and_chessboard(self):
+        self.assertEqual(squares_needed(0), 0)
+        self.assertEqual(squares_needed(1), 1)
+        self.assertEqual(squares_needed(2), 2)
+        self.assertEqual(squares_needed(3), 2)
+        self.assertEqual(squares_needed(4), 3)
+        self.assertEqual(squares_needed(349793859), 29)
