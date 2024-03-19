@@ -1,6 +1,7 @@
 from unittest import TestCase
 from .sum_nested import sum_nested
 from .rice_and_chessboard import squares_needed
+from .find_max_tree_node import TreeNode, find_max
 
 
 class Test7Kyu(TestCase):
@@ -42,3 +43,33 @@ class Test7Kyu(TestCase):
         self.assertEqual(squares_needed(3), 2)
         self.assertEqual(squares_needed(4), 3)
         self.assertEqual(squares_needed(349793859), 29)
+
+    def test_max_tree_node(self):
+        tree_is_leaf = TreeNode(-3)
+        self.assertEqual(find_max(tree_is_leaf), -3)
+
+        tree_with_left = TreeNode(2, TreeNode(1))
+        self.assertEqual(find_max(tree_with_left), 2)
+
+        tree_with_right = TreeNode(5, None, TreeNode(0))
+        self.assertEqual(find_max(tree_with_right), 5)
+
+        tree_with_duplicates = TreeNode(1010, TreeNode(-2, TreeNode(100), TreeNode(1010, None, TreeNode(-101))),
+                                        TreeNode(-2, TreeNode(99)))
+        self.assertEqual(find_max(tree_with_duplicates), 1010)
+
+        all_duplicates = TreeNode(-3, TreeNode(-3, TreeNode(-3, None), TreeNode(-3)),
+                                  TreeNode(-3, None, TreeNode(-3, TreeNode(-3))))
+        self.assertEqual(find_max(all_duplicates), -3)
+
+        perfect_tree = TreeNode(11, TreeNode(4, TreeNode(100), TreeNode(1)),
+                                TreeNode(-2, TreeNode(99), TreeNode(-101)))
+        self.assertEqual(find_max(perfect_tree), 100)
+
+        unbalanced_tree = TreeNode(54, TreeNode(4, TreeNode(-10, TreeNode(2, None, TreeNode(9)), TreeNode(45)),
+                                                TreeNode(1)))
+        self.assertEqual(find_max(unbalanced_tree), 54)  # Max at root
+
+        all_negatives = TreeNode(-5, TreeNode(-4, TreeNode(-6), TreeNode(-2)),
+                                 TreeNode(-9, TreeNode(-45, None, TreeNode(-1))))
+        self.assertEqual(find_max(all_negatives), -1)  # Max at last node
