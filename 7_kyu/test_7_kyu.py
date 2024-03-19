@@ -4,6 +4,7 @@ from .rice_and_chessboard import squares_needed
 from .find_max_tree_node import TreeNode, find_max
 from .stringify import Node, stringify
 from .reverser import reverse
+from .sumsquares import sumsquares
 
 
 class Test7Kyu(TestCase):
@@ -81,8 +82,20 @@ class Test7Kyu(TestCase):
         self.assertEqual(stringify(None), 'None')
         self.assertEqual(stringify(Node(0, Node(1, Node(4, Node(9, Node(16)))))),
                          '0 -> 1 -> 4 -> 9 -> 16 -> None')
-        
+
     def test_reverser(self):
         self.assertEqual(reverse(1234), 4321)
         self.assertEqual(reverse(10987), 78901)
         self.assertEqual(reverse(1020), 201)
+
+    def test_sumsquares(self):
+        l = [1, 2, 3]
+        self.assertEqual(sumsquares(l), 14)
+        l = [[1, 2], 3]
+        self.assertEqual(sumsquares(l), 14)
+        l = [[[[[[[[[1]]]]]]]]]
+        self.assertEqual(sumsquares(l), 1)
+        l = [10, [[10], 10], [10]]
+        self.assertEqual(sumsquares(l), 400)
+        l = [1, [[3], 10, 5, [2, [3], [4], [5, [6]]]], [10]]
+        self.assertEqual(sumsquares(l), 325)
