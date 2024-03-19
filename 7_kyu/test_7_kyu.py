@@ -3,6 +3,7 @@ from .sum_nested import sum_nested
 from .rice_and_chessboard import squares_needed
 from .find_max_tree_node import TreeNode, find_max
 from .stringify import Node, stringify
+from .reverser import reverse
 
 
 class Test7Kyu(TestCase):
@@ -80,3 +81,8 @@ class Test7Kyu(TestCase):
         self.assertEqual(stringify(None), 'None')
         self.assertEqual(stringify(Node(0, Node(1, Node(4, Node(9, Node(16)))))),
                          '0 -> 1 -> 4 -> 9 -> 16 -> None')
+        
+    def test_reverser(self):
+        self.assertEqual(reverse(1234), 4321)
+        self.assertEqual(reverse(10987), 78901)
+        self.assertEqual(reverse(1020), 201)
