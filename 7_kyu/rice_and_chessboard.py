@@ -6,16 +6,9 @@
 
 
 def squares_needed(grains):
-    i = 0
-    prev = 0
-    curr = 1
-    while True:
-        if prev <= grains < curr:
-            return i
-        else:
-            i += 1
-            prev = curr
-            curr += curr
+    if grains < 1:
+        return 0
+    return 1 + squares_needed(grains // 2)
 
 
 print(squares_needed(4))
