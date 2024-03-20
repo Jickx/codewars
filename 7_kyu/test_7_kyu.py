@@ -1,10 +1,12 @@
 from unittest import TestCase
+
 from .sum_nested import sum_nested
 from .rice_and_chessboard import squares_needed
 from .find_max_tree_node import TreeNode, find_max
 from .stringify import Node, stringify
 from .reverser import reverse
 from .sumsquares import sumsquares
+from .reduce_fraction import reduce_fraction
 
 
 class Test7Kyu(TestCase):
@@ -99,3 +101,11 @@ class Test7Kyu(TestCase):
         self.assertEqual(sumsquares(l), 400)
         l = [1, [[3], 10, 5, [2, [3], [4], [5, [6]]]], [10]]
         self.assertEqual(sumsquares(l), 325)
+
+    def test_reduce_fraction(self):
+        self.assertEqual(reduce_fraction((60, 20)), (3, 1))
+        self.assertEqual(reduce_fraction((80, 120)), (2, 3))
+        self.assertEqual(reduce_fraction((4, 2)), (2, 1))
+        self.assertEqual(reduce_fraction((45, 120)), (3, 8))
+        self.assertEqual(reduce_fraction((1000, 1)), (1000, 1))
+        self.assertEqual(reduce_fraction((1, 1)), (1, 1))
