@@ -5,5 +5,4 @@ def reduce_fraction(fraction):
             return a // i, b // i
 
 
-print(reduce_fraction((45, 120)))
 # example: [45, 120] --> [3, 8]

@@ -7,6 +7,7 @@ from .stringify import Node, stringify
 from .reverser import reverse
 from .sumsquares import sumsquares
 from .reduce_fraction import reduce_fraction
+from .recursive_replicate import replicate
 
 
 class Test7Kyu(TestCase):
@@ -109,3 +110,10 @@ class Test7Kyu(TestCase):
         self.assertEqual(reduce_fraction((45, 120)), (3, 8))
         self.assertEqual(reduce_fraction((1000, 1)), (1000, 1))
         self.assertEqual(reduce_fraction((1, 1)), (1, 1))
+
+    def test_recursive_replicate(self):
+        self.assertEqual(replicate(3, 5), [5, 5, 5])
+        self.assertEqual(replicate(5, 1), [1, 1, 1, 1, 1])
+        self.assertEqual(replicate(0, 12), [])
+        self.assertEqual(replicate(-1, 12), [])
+        self.assertEqual(replicate(8, 0), [0, 0, 0, 0, 0, 0, 0, 0])
